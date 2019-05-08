@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: "Lato", sans-serif;}
+
+        .sidebar {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 160px;
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {padding-top: 15px;}
+            .sidebar a {font-size: 18px;}
+        }
+
+    </style>
+
+
+</head>
+
+<body bgcolor="#faf0e6">
+
+
+
+
+
+
+
+
+<div class="sidebar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<a href="product/list.html" th:href="@{/product/list}">Product List</a>-->
+  <a href="index.html" th:href="@{/}"><i class="fa fa-fw fa-home"></i> Home</li></a>
+    <a href="login.html" th:href="@{/login}"><i class="fa fa-fw fa-user"></i> Login</li></a>
+    <a href="registration.html" th:href="@{/registration}"><i class="fa fa-fw fa-user"></i>Register </li></a>
+
+
+</div>
+    <div class="container-fluid">
+
+        <div class="row">
+
+    <div class="col-sm-6" >
+
+<div class="main">
+    <h2>Currently reported crimes</h2>
+<table cellspacing="2" border="2">
+    <thead>
+    <tr>
+        <th>location....</th>
+        <th>crime committed....</th>
+        <th>More details....</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="crime : ${crime}">
+        <td th:text="${crime.location}">Type</td>
+        <td th:text="${crime.crime_type}">Name</td>
+        <td th:text="${crime.story}">Name</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+    </div>
+
+            <div class="col-sm-6">
+
+
+<div class="main">
+    <h2>Currently reported incidence</h2>
+    <table cellspacing="2" border="2">
+        <thead>
+        <tr>
+            <th>location....</th>
+            <th>incidence reported....</th>
+            <th>More details....</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="incidence : ${incidence}">
+            <td th:text="${incidence.location}">Type</td>
+            <td th:text="${incidence.incident_type}">Name</td>
+            <td th:text="${incidence.description}">Name</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+      </di>
+
+
+</div>
+
+
+</div>
+    </div>
+</body>
+</html>
